@@ -4,10 +4,23 @@ module Dwolla
 
     attr_accessor :id,
                   :name,
+                  :email,
+                  :password,
+                  :pin,
+                  :first_name,
+                  :last_name,
                   :latitude,
                   :longitude,
+                  :address,
+                  :address2,
                   :city,
                   :state,
+                  :zip,
+                  :phone,
+                  :date_of_birth,
+                  :organization,
+                  :ein,
+                  :accept_terms,
                   :type,
                   :contact_type,
                   :image,
@@ -19,6 +32,10 @@ module Dwolla
 
     def self.me(access_token)
       User.new(:oauth_token => access_token)
+    end
+
+    def register(attrs={})
+      post('register', attrs)
     end
 
     def fetch
