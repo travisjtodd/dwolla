@@ -34,7 +34,25 @@ module Dwolla
       User.new(:oauth_token => access_token)
     end
 
-    def self.register(attrs={})
+    def register
+      attrs = { :name => self.name,
+                :email => self.email,
+                :password => self.password,
+                :pin => self.pin,
+                'firstName' => self.first_name,
+                'lastName' => self.last_name,
+                :address => self.address,
+                :address2 => self.address2,
+                :city => self.city,
+                :state => self.state,
+                :zip => self.zip,
+                :phone => self.phone,
+                'dateOfBirth' => self.date_of_birth,
+                :organization => self.organization,
+                :ein => self.ein,
+                'acceptTerms' => self.accept_terms,
+                :type => self.type
+              }
       post('register', attrs)
     end
 
