@@ -34,7 +34,7 @@ module Dwolla
       User.new(:oauth_token => access_token)
     end
 
-    def register(attrs={})
+    def self.register(attrs={})
       post('register', attrs)
     end
 
